@@ -1,0 +1,24 @@
+npm init (inicializa el proyecto)
+CARPETAS
+    Controllers: logica del backend, formato del backend
+    Models: todo lo relacionado a la base de datos
+    Aqui hagoel modelado de datos, como quiero que se guarden los productos en mi BD
+    Routes: almacena todas las rutas (URL)
+
+npm install express --save, --save es para que se guarda como una dependencia
+express es el framework q se usa
+Aun no entiende Js, asi que instalo una dependencia que le permite instalar (Babel)
+Babel traduce de Js a una que entienda los navegadores, de la ECMA5 a anteriores
+npm i babel-cli
+npm i babel-preset-env
+Crear el .babelrc
+npm install -g nodemon (queda instalada en la computadora -g)
+npm install -D nodemon (se instala como DEPENDENCIA DE DESARROLLO)
+Debo condfigurar el nodemon
+nodemon se encarga de ejecutar a babel y babel toma a index.js y lo traduce a codigo "viejo"
+npm i morgan cors mongoose (Diferentes Middlewares)
+mongoose no es un Middlewares, es una herramienta para trabajar con la base datos
+morgan: nos da la informacion de la peticion (get, put, post, delete)
+cors: sirva para aceptar solicitudes remotas
+la cadena de conexion a la base de datos ---> mongoose (intermediario entre el backend y la base de datos)
+Coleccion=Tabla, Documento=Objeto=Registro

@@ -1,37 +1,37 @@
 import mongoose, { Schema } from "mongoose";
 
 const newsSchema = new Schema({
-  categoriaNoticia:{
-      type: String,
-      required: true
-  } ,
-  idCategoriaNoticia:{
-      type: Number,
-      unique: true,
-      required: true
-  } ,
+  categoriaNoticia: {
+    type: String,
+    required: true,
+  },
+  idCategoriaNoticia: {
+    type: Number,
+    required: true,
+  },
   tituloNoticia: {
     type: String,
     maxlength: 50,
-    required: true
-},
+    required: true,
+  },
   autorNoticia: {
     type: String,
     maxlength: 30,
-    required: true
-},
+    required: true,
+  },
   fechaNoticia: {
-
-
-    required: true
+    type: String,
+    required: true,
+  },
+  imagenNoticia: {
+    type: String,
   },
   contenidoNoticia: {
     type: String,
-    maxlength: 150,
-    required: true
-},
+    required: true,
+  },
 });
 
-const News = mongoose.model('Noticia', newsSchema) ;
+const News = mongoose.model("Noticia", newsSchema);
 
 export default News;

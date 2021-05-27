@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
-const url = 'mongodb://localhost:27017/RollingNews';
+const url = "mongodb://localhost:27017/RollingNewsDB";
 
-mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
 const connection = mongoose.connection;
 
-connection.once('open', ()=>{
-    console.log('BD conectada');
-})
+connection.once("open", () => {
+  console.log("BD conectada");
+});

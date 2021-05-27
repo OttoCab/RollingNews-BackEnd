@@ -11,6 +11,7 @@ const newsSchema = new Schema({
   },
   tituloNoticia: {
     type: String,
+    unique: true,
     maxlength: 50,
     required: true,
   },

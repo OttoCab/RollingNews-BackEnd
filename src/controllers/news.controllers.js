@@ -25,7 +25,20 @@ newsCtrl.crearNoticia = async (req, res) => {
   } catch (error) {
     // console.log(error);
     res.status(500).json({
-        msj: 'error al agregar la noticia'
+      msj: "error al agregar la noticia",
+    });
+  }
+};
+
+newsCtrl.listarNoticias = async (req, res) => {
+  try {
+    // Obtener un arreglo de Noticias
+    const arrayNews = await News.find();
+    res.status(200).json(arrayNews);
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      msj: "Error: no se pudo enviar la lista de Noticias",
     });
   }
 };

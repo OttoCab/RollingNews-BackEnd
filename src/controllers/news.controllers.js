@@ -42,4 +42,9 @@ newsCtrl.listarNoticias = async (req, res) => {
     });
   }
 };
+
+newsCtrl.deleteNews = (req, res)=>{
+    console.log(req.params.idNoticia);
+
+}
 export default newsCtrl;

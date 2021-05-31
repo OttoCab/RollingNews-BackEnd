@@ -43,8 +43,45 @@ newsCtrl.listarNoticias = async (req, res) => {
   }
 };
 
-newsCtrl.deleteNews = (req, res)=>{
-    console.log(req.params.idNoticia);
+newsCtrl.deleteNews = async (req, res) => {
+  // console.log(req.params.idNoticia);
+  try {
+    await News.findByIdAndDelete(req.params.idNoticia);
+    res.status(200).json({
+      msj: "La noticia fue eliminada correctamente",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      msj: "No se encontro el objeto y no pudo ser eliminado",
+    });
+  }
+};
 
-}
+newsCtrl.editarNoticia = async (req, res) => {
+  try {
+    await News.findByIdAndUpdate(req.params.idNoticia, req.body);
+    res.status(200).json({
+      msj: "La Noticia fue modificada",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      msj: "No se pudo editar la noticia",
+    });
+  }
+};
+
+newsCtrl.obtenerNoticia = async (req, res) => {
+  try {
+    // Obtener un producto
+    const newsEncontrado = await News.findById(req.params.idNoticia);
+    res.status(200).json(newsEncontrado); 
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      msj: "No se encontro la noticia",
+    });
+  }
+};
 export default newsCtrl;

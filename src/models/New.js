@@ -6,7 +6,7 @@ const newsSchema = new Schema({
     required: true,
   },
   idCategoriaNoticia: {
-    type: Number,
+    type: String,
     required: true,
   },
   tituloNoticia: {

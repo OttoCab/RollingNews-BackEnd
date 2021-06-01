@@ -46,7 +46,7 @@ newsCtrl.listarNoticias = async (req, res) => {
 newsCtrl.deleteNews = async (req, res) => {
   // console.log(req.params.idNoticia);
   try {
-    await News.findByIdAndDelete(req.params.idNoticia);
+    await News.findByIdAndDelete(req.params.id);
     res.status(200).json({
       msj: "La noticia fue eliminada correctamente",
     });
@@ -60,7 +60,7 @@ newsCtrl.deleteNews = async (req, res) => {
 
 newsCtrl.editarNoticia = async (req, res) => {
   try {
-    await News.findByIdAndUpdate(req.params.idNoticia, req.body);
+    await News.findByIdAndUpdate(req.params.id, req.body);
     res.status(200).json({
       msj: "La Noticia fue modificada",
     });
@@ -75,7 +75,7 @@ newsCtrl.editarNoticia = async (req, res) => {
 newsCtrl.obtenerNoticia = async (req, res) => {
   try {
     // Obtener un producto
-    const newsEncontrado = await News.findById(req.params.idNoticia);
+    const newsEncontrado = await News.findById(req.params.id);
     res.status(200).json(newsEncontrado); 
   } catch (error) {
     console.log(error);

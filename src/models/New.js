@@ -5,7 +5,7 @@ const newsSchema = new Schema({
     type: String,
     required: true,
   },
-  idCategoriaNoticia: {
+  codCatNews: {
     type: String,
     required: true,
   },

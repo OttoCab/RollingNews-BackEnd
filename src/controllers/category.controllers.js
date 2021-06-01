@@ -9,6 +9,7 @@ categoryCtrl.crearCategoria = async (req, res) => {
   try {
     const nuevaCategoria = new Category({
       nombreCategoria: req.body.nombreCategoria,
+      codCat: req.body.codCat,
     });
     await nuevaCategoria.save();
     res.status(201).json({
@@ -41,7 +42,7 @@ categoryCtrl.deleteCategory = async (req, res) => {
       msj: "La Categoria fue eliminada correctamente",
     });
   } catch (error) {
-    console.log(erro);
+    console.log(error);
     res.status(404).json({
       msj: "No se encontro el objeto y no pudo ser eliminado",
     });
@@ -55,7 +56,7 @@ categoryCtrl.editarCategoria = async (req, res) => {
       msj: "La Categoria fue modificado",
     });
   } catch (error) {
-    console.log(erro);
+    console.log(error);
     res.status(404).json({
       msj: "No se pudo editar la Categoria",
     });

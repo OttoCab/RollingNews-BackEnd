@@ -6,7 +6,8 @@ const categorySchema = new Schema({
     require: true,
   },
   codCat: {
-    type : String,
+    type : Number,
+    require: true,
   }
 });
 

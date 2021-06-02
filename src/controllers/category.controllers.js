@@ -63,4 +63,16 @@ categoryCtrl.editarCategoria = async (req, res) => {
   }
 };
 
+categoryCtrl.obtenerCategoria = async (req, res) => {
+  try {
+    const categoriaEncontrada = await Category.findById(req.params.idCategoria);
+    res.status(200).json(categoriaEncontrada)
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      msj: "No se encontro el producto"
+    })
+  }
+}
+
 export default categoryCtrl;

@@ -12,6 +12,7 @@ routerCategory
 routerCategory
   .route("/:idCategoria")
   .delete(categoryCtrl.deleteCategory)
-  .put(categoryCtrl.editarCategoria);
+  .put(categoryCtrl.editarCategoria)
+  .get(categoryCtrl.obtenerCategoria);
 
 export default routerCategory;

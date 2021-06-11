@@ -34,31 +34,31 @@ categoryCtrl.listarCategorias = async (req, res) => {
   }
 };
 
-categoryCtrl.deleteCategory = async(req, res)=>{
-  // console.log(req.params.idCategoria);
+categoryCtrl.deleteCategory = async (req, res) => {
+  console.log(req.params.idCategoria);
   try {
-    await Category.findByIdAndDelete(req.params.id);
+    await Category.findByIdAndDelete(req.params.idCategoria);
     res.status(200).json({
-      msj: "La categoria fue eliminada correctamente",
+      msj: "La Categoria fue eliminada correctamente",
     });
   } catch (error) {
     console.log(error);
     res.status(404).json({
-      msj: "No se encontro la categoria y no pudo ser eliminada",
+      msj: "No se encontro el objeto y no pudo ser eliminado",
     });
   }
 };
 
 categoryCtrl.editarCategoria = async (req, res) => {
   try {
-    await Category.findByIdAndUpdate(req.params.id, req.body);
+    await Category.findByIdAndUpdate(req.params.idCategoria, req.body);
     res.status(200).json({
-      msj: "La Categoria fue modificada",
+      msj: "La Categoria fue modificado",
     });
   } catch (error) {
     console.log(error);
     res.status(404).json({
-      msj: "No se pudo editar la categoria",
+      msj: "No se pudo editar la Categoria",
     });
   }
 };

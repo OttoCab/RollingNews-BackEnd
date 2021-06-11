@@ -6,6 +6,7 @@ newsCtrl.getPrueba = (req, res) => {
 };
 
 newsCtrl.crearNoticia = async (req, res) => {
+  console.log(req.body,"BODY");
   try {
     // Crear un objeto que posteriormente guardo en la DB
     const nuevaNoticia = new News({
@@ -17,6 +18,7 @@ newsCtrl.crearNoticia = async (req, res) => {
       imagenNoticia: req.body.imagenNoticia,
       contenidoNoticia: req.body.contenidoNoticia,
     });
+    console.log(req.body);
     // Guardar en la BD
     await nuevaNoticia.save();
     res.status(201).json({
@@ -59,6 +61,7 @@ newsCtrl.deleteNews = async (req, res) => {
 };
 
 newsCtrl.editarNoticia = async (req, res) => {
+  console.log(req.body);
   try {
     await News.findByIdAndUpdate(req.params.id, req.body);
     res.status(200).json({
@@ -74,7 +77,7 @@ newsCtrl.editarNoticia = async (req, res) => {
 
 newsCtrl.obtenerNoticia = async (req, res) => {
   try {
-    // Obtener un producto
+    // Obtener una noticia
     const newsEncontrado = await News.findById(req.params.id);
     res.status(200).json(newsEncontrado); 
   } catch (error) {

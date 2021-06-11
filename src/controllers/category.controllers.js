@@ -33,8 +33,46 @@ categoryCtrl.listarCategorias = async (req, res) => {
   }
 };
 
-categoryCtrl.deleteCategory = (req, res)=>{
-  console.log(req.params.idCategoria);
-}
+categoryCtrl.deleteCategory = async(req, res)=>{
+  // console.log(req.params.idCategoria);
+  try {
+    await Category.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+      msj: "La categoria fue eliminada correctamente",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      msj: "No se encontro la categoria y no pudo ser eliminada",
+    });
+  }
+};
+
+categoryCtrl.editarCategoria = async (req, res) => {
+  try {
+    await Category.findByIdAndUpdate(req.params.id, req.body);
+    res.status(200).json({
+      msj: "La Categoria fue modificada",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      msj: "No se pudo editar la categoria",
+    });
+  }
+};
+
+categoryCtrl.obtenerCategoria = async (req, res) => {
+  try {
+    const categoriaEncontrada = await Category.findById(req.params.id);
+    res.status(200).json(categoriaEncontrada); 
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      msj: "No se encontro la noticia",
+    });
+  }
+};
+
 
 export default categoryCtrl;

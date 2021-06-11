@@ -6,7 +6,7 @@ const newsSchema = new Schema({
     required: true,
   },
   idCategoriaNoticia: {
-    type: String,
+    type: String  ,
     required: true,
   },
   tituloNoticia: {
@@ -31,6 +31,9 @@ const newsSchema = new Schema({
     type: String,
     required: true,
   },
+  destacada:{
+    type: Boolean,
+  }
 });
 
 const News = mongoose.model("Noticia", newsSchema);

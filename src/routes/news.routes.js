@@ -4,7 +4,10 @@ import newsCtrl from "../controllers/news.controllers";
 const routerNews = Router();
 
 // Crea las rutas
-routerNews.route("/").get(newsCtrl.listarNoticias).post(newsCtrl.crearNoticia);
+routerNews
+  .route("/")
+  .get(newsCtrl.listarNoticias)
+  .post(newsCtrl.crearNoticia);
 routerNews
   .route("/:id")
   .delete(newsCtrl.deleteNews)

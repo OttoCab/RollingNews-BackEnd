@@ -1,9 +1,9 @@
 import News from "../models/New";
 const newsCtrl = {};
 
-newsCtrl.getPrueba = (req, res) => {
-  res.send("Prueba desde controlador noticias");
-};
+// newsCtrl.getPrueba = (req, res) => {
+//   res.send("Prueba desde controlador noticias");
+// };
 
 newsCtrl.crearNoticia = async (req, res) => {
   console.log(req.body,"BODY");
@@ -48,7 +48,7 @@ newsCtrl.listarNoticias = async (req, res) => {
 newsCtrl.deleteNews = async (req, res) => {
   // console.log(req.params.idNoticia);
   try {
-    await News.findByIdAndDelete(req.params.id);
+    await News.findByIdAndDelete(req.params.idNews);
     res.status(200).json({
       msj: "La noticia fue eliminada correctamente",
     });
@@ -63,7 +63,7 @@ newsCtrl.deleteNews = async (req, res) => {
 newsCtrl.editarNoticia = async (req, res) => {
   console.log(req.body);
   try {
-    await News.findByIdAndUpdate(req.params.id, req.body);
+    await News.findByIdAndUpdate(req.params.idNews, req.body);
     res.status(200).json({
       msj: "La Noticia fue modificada",
     });

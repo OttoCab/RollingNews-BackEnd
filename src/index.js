@@ -28,6 +28,5 @@ app.use(express.static(path.join(__dirname, "../public")));
 // app.get('/', (req, res) =>{
 //         res.send("esta es una ruta de prueba");
 // })
-app.use("/api/News", newsRoutes); //localhost:4000/api/News/
-
 app.use("/api/Categorias", categoryRoutes); //localhost:4000/api/Categorias/
+app.use("/api/News", newsRoutes); //localhost:4000/api/News/s

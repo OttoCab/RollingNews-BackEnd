@@ -8,9 +8,9 @@ routerCategory
   .route("/")
   .get(categoryCtrl.listarCategorias)
   .post(categoryCtrl.crearCategoria);
-//routerCategory.route('/idCategoria').delete()
+
 routerCategory
-  .route("/:id")
+  .route("/:idCategoria")
   .delete(categoryCtrl.deleteCategory)
   .put(categoryCtrl.editarCategoria)
   .get(categoryCtrl.obtenerCategoria);

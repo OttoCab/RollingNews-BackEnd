@@ -5,6 +5,10 @@ const categorySchema = new Schema({
     type: String,
     require: true,
   },
+  codCat: {
+    type : Number,
+    require: true,
+  }
 });
 
 const Category = mongoose.model("Categoria", categorySchema);

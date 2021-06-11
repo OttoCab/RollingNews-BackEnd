@@ -8,8 +8,9 @@ routerNews
   .route("/")
   .get(newsCtrl.listarNoticias)
   .post(newsCtrl.crearNoticia);
+
 routerNews
-  .route("/:id")
+  .route("/:idNews")
   .delete(newsCtrl.deleteNews)
   .put(newsCtrl.editarNoticia)
   .get(newsCtrl.obtenerNoticia);

@@ -1,14 +1,15 @@
 import Category from "../models/Category";
 const categoryCtrl = {};
 
-categoryCtrl.getPrueba = (req, res) => {
-  res.send("Prueba desde controlador Categoria");
-};
+// categoryCtrl.getPrueba = (req, res) => {
+//   res.send("Prueba desde controlador Categoria");
+// };
 
 categoryCtrl.crearCategoria = async (req, res) => {
   try {
     const nuevaCategoria = new Category({
       nombreCategoria: req.body.nombreCategoria,
+      codCat: req.body.codCat,
     });
     await nuevaCategoria.save();
     res.status(201).json({
@@ -64,15 +65,14 @@ categoryCtrl.editarCategoria = async (req, res) => {
 
 categoryCtrl.obtenerCategoria = async (req, res) => {
   try {
-    const categoriaEncontrada = await Category.findById(req.params.id);
-    res.status(200).json(categoriaEncontrada); 
+    const categoriaEncontrada = await Category.findById(req.params.idCategoria);
+    res.status(200).json(categoriaEncontrada)
   } catch (error) {
     console.log(error);
     res.status(404).json({
-      msj: "No se encontro la noticia",
-    });
+      msj: "No se encontro el producto"
+    })
   }
-};
-
+}
 
 export default categoryCtrl;

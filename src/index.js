@@ -5,6 +5,7 @@ import path from "path"; // objeto que me ayuda obetener la ruta
 import "./database";
 import newsRoutes from "./routes/news.routes";
 import categoryRoutes from "./routes/category.routes";
+import userRoutes from './routes/user.routes';
 
 // Config
 // Creo una instancia de express
@@ -30,3 +31,4 @@ app.use(express.static(path.join(__dirname, "../public")));
 // })
 app.use("/api/Categorias", categoryRoutes); //localhost:4000/api/Categorias/
 app.use("/api/News", newsRoutes); //localhost:4000/api/News/s
+app.use("/api/Usuarios", userRoutes);

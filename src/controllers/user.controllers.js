@@ -1,8 +1,17 @@
 import User from "../models/User";
 const userCtrl = {};
 
-userCtrl.obtenerUser = (req, res)=>{
-    res.send('prueba desde el controlador');
+userCtrl.obtenerUser = async(req, res)=>{
+    // res.send('prueba desde el controlador');
+    try{
+        const arregloUsuarios = await User.find();
+        res.status(200).json(arregloUsuarios);
+    }catch(error){
+        console.log(error);
+        res.status(404).json({
+            mensaje: 'no se pudo obtener el usuario'
+        })
+    }
 }
 
 userCtrl.crearUsuario = async(req,res)=>{
